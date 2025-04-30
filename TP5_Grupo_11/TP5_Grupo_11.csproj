@@ -68,9 +68,41 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Web.config" />
+    <Content Include="Ej01.aspx" />
+    <Content Include="Ej01AgregarSucursal.aspx" />
+    <Content Include="Ej01ListadoSucursal.aspx" />
+    <Content Include="Ej01EliminarSucursal.aspx" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Ej01.aspx.cs">
+      <DependentUpon>Ej01.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Ej01.aspx.designer.cs">
+      <DependentUpon>Ej01.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Ej01AgregarSucursal.aspx.cs">
+      <DependentUpon>Ej01AgregarSucursal.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Ej01AgregarSucursal.aspx.designer.cs">
+      <DependentUpon>Ej01AgregarSucursal.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Ej01ListadoSucursal.aspx.cs">
+      <DependentUpon>Ej01ListadoSucursal.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Ej01ListadoSucursal.aspx.designer.cs">
+      <DependentUpon>Ej01ListadoSucursal.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Ej01EliminarSucursal.aspx.cs">
+      <DependentUpon>Ej01EliminarSucursal.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Ej01EliminarSucursal.aspx.designer.cs">
+      <DependentUpon>Ej01EliminarSucursal.aspx</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
