@@ -35,14 +35,17 @@ namespace TP5_Grupo_11
 
         }
 
-        public SqlDataReader ejecutarLectura(string consultaSql)
+        public DataTable ejecutarLectura(string consultaSql)
         {
-            SqlConnection sqlConnection = new SqlConnection(cadenaConexion);
-            sqlConnection.Open();
-            SqlCommand sqlCommand = new SqlCommand(consultaSql, sqlConnection);
-            SqlDataReader sqlDataReader = sqlCommand.ExecuteReader();
-            sqlConnection.Close();
-            return sqlDataReader;
+            using (SqlConnection sqlConnection = new SqlConnection(cadenaConexion))
+            {
+                sqlConnection.Open();
+                SqlCommand sqlCommand = new SqlCommand(consultaSql, sqlConnection);
+                SqlDataReader sqlDataReader = sqlCommand.ExecuteReader();
+                DataTable dt = new DataTable();
+                dt.Load(sqlDataReader);
+                return dt;
+            }
         }
 
     }

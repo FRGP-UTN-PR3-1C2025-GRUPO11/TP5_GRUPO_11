@@ -5,6 +5,7 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using System.Data;
 
 
 namespace TP5_Grupo_11
@@ -17,12 +18,13 @@ namespace TP5_Grupo_11
             {
                 Conexion conexion = new Conexion();
                 string query = "SELECT P.Id_Provincia, P.DescripcionProvincia FROM Provincia AS [P]";
-                SqlDataReader provinciasBd = conexion.ejecutarLectura(query);
+                DataTable provinciasBd = conexion.ejecutarLectura(query);
                 
                 ddlProvinciaSucursal.DataSource = provinciasBd;
                 ddlProvinciaSucursal.DataTextField = "DescripcionProvincia";
                 ddlProvinciaSucursal.DataValueField = "Id_Provincia";
                 ddlProvinciaSucursal.DataBind();
+               
 
             }
         }
