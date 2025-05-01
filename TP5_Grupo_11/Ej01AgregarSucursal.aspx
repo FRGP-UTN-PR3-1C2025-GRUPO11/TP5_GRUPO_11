@@ -8,11 +8,6 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <title>Agregar Sucursal</title>
     <style>
-        .divHyperLinks {
-            justify-content: center;
-            display: flex;
-            gap: 100px;
-        }
         #datosSucursal {
             display: flex; 
             flex-direction: column; 

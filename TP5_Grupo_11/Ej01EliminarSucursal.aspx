@@ -7,13 +7,6 @@
 <head runat="server">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <title>Eliminar Sucursal</title>
-    <style>
-.divHyperLinks {
-    justify-content: center;
-    display: flex;
-    gap: 100px;
-}
-    </style>
 </head>
 <body>
     <uc:Nav runat="server" ID="nav1" />

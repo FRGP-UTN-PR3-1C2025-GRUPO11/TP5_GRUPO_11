@@ -1,5 +1,5 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Ej01.aspx.cs" Inherits="TP5_Grupo_11.Ej01" %>
-<%@ Register Src="Nav.ascx" TagPrefix="uc" TagName="Nav" %>
+<%@ Register Src="Nav.ascx" TagPrefix="uc" TagName="Nav" %> <%--Implementación de fragmento repetitivo--%>
 
 <!DOCTYPE html>
 
@@ -7,13 +7,6 @@
 <head runat="server">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <title>Ejercicion 1</title>
-    <style>
-        .divHyperLinks {
-            justify-content: center;
-            display: flex;
-            gap: 100px;
-        }
-    </style>
 </head>
 <body>
     <uc:Nav runat="server" ID="nav1" />
