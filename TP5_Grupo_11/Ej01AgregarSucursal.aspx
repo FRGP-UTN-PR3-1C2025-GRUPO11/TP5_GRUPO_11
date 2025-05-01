@@ -47,10 +47,12 @@
                 <div id="divNombreSucursal" class="formElement">
                 <asp:Label Text="Nombre Sucursal:" runat="server" />
                 <asp:TextBox ID="txtBoxNombreSucursal" runat="server" placeholder="Nombre de Sucursal..."></asp:TextBox>
+                    <asp:RequiredFieldValidator ID="rfvNombreSucursal" runat="server" ControlToValidate="txtBoxNombreSucursal">Falta nombre</asp:RequiredFieldValidator>
                 </div>
                 <div id="divDescripcionSucursal" class="formElement">
                 <asp:Label Text="Descripción:" runat="server" />
                 <asp:TextBox ID="txtBoxDescripcionSucursal" runat="server" placeholder="Descripción..."></asp:TextBox>
+                    <asp:RequiredFieldValidator ID="rfvDescripSucursal" runat="server" ControlToValidate="txtBoxDescripcionSucursal">Falta descripción</asp:RequiredFieldValidator>
                 </div>
                 <div id="divProvinciaSucursal" class="formElement">
                 <asp:Label Text="Provincia:" runat="server" />
@@ -60,9 +62,14 @@
                 <div id="divDieccionSucursal" class="formElement">
                 <asp:Label runat="server" Text="Dirección:"/>
                 <asp:TextBox ID="txtBoxDireccionSucursal" runat="server" placeholder="Dirección..."></asp:TextBox>
+                    <asp:RequiredFieldValidator ID="rfvDireccionSucursal" runat="server" ControlToValidate="txtBoxDireccionSucursal">Falta la dirección</asp:RequiredFieldValidator>
                 </div>
             </div>
         </section>
+        <asp:Button ID="btnAgregar" runat="server" OnClick="btnAgregar_Click" Text="Agregar" />
+        <p>
+            <asp:Label ID="lblAgregado" runat="server"></asp:Label>
+        </p>
     </form>
 </body>
 </html>
