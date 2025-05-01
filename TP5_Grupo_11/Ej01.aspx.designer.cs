@@ -15,6 +15,15 @@ namespace TP5_Grupo_11
     {
 
         /// <summary>
+        /// Control nav1.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::TP5_Grupo_11.Componentes nav1;
+
+        /// <summary>
         /// Control formularioEj01.
         /// </summary>
         /// <remarks>

@@ -1,4 +1,5 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Ej01EliminarSucursal.aspx.cs" Inherits="TP5_Grupo_11.Ej01EliminarSucursal" %>
+<%@ Register Src="Nav.ascx" TagPrefix="uc" TagName="Nav" %>
 
 <!DOCTYPE html>
 
@@ -15,11 +16,9 @@
     </style>
 </head>
 <body>
+    <uc:Nav runat="server" ID="nav1" />
     <form id="formularioEj01EliminarSucursal" runat="server">
-        <div class="divHyperLinks">
-            <asp:HyperLink runat="server" Text="Agregar Sucursal" NavigateUrl="~/Ej01AgregarSucursal.aspx"></asp:HyperLink>
-<asp:HyperLink runat="server" Text="Listado de Sucursales" NavigateUrl="~/Ej01ListadoSucursal.aspx"></asp:HyperLink>
-        </div>
+
     </form>
 </body>
 </html>
