@@ -11,7 +11,7 @@ namespace TP5_Grupo_11
 {
 
 
-    public partial class Componentes
+    public partial class Nav
     {
 
         /// <summary>

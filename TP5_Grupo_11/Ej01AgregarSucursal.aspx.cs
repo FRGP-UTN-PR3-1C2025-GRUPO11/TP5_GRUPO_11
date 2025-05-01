@@ -19,15 +19,39 @@ namespace TP5_Grupo_11
                 Conexion conexion = new Conexion();
                 string query = "SELECT P.Id_Provincia, P.DescripcionProvincia FROM Provincia AS [P]";
                 DataTable provinciasBd = conexion.ejecutarLectura(query);
-                
+
                 ddlProvinciaSucursal.DataSource = provinciasBd;
                 ddlProvinciaSucursal.DataTextField = "DescripcionProvincia";
                 ddlProvinciaSucursal.DataValueField = "Id_Provincia";
                 ddlProvinciaSucursal.DataBind();
-               
+
 
             }
         }
-    
+
+        protected void btnAceptar_Click(object sender, EventArgs e)
+        {
+            Conexion conexion = new Conexion();
+
+            string query = "INSERT INTO Sucursal (NombreSucursal, DescripcionSucursal, Id_ProvinciaSucursal, DireccionSucursal) " +
+                           "VALUES ('" + txtBoxNombreSucursal.Text + "', '" + txtBoxDescripcionSucursal.Text + "', '" + int.Parse(ddlProvinciaSucursal.SelectedValue) + "', '" + txtBoxDireccionSucursal.Text + "')";
+            int filasAfectadas = conexion.ejecutarModificacion(query);
+            if (filasAfectadas > 0)
+            {
+                lblResultado.Text = "La sucursal se ha agregado con éxito.";
+            }
+            else
+            {
+                lblResultado.Text = "Error al agregar la sucursal.";
+            }
+            LimpiarCampos();
+        }
+        private void LimpiarCampos()
+        {
+            txtBoxNombreSucursal.Text = "";
+            txtBoxDescripcionSucursal.Text = "";
+            txtBoxDireccionSucursal.Text = "";
+            ddlProvinciaSucursal.SelectedIndex = 0;
+        }
     }
 }

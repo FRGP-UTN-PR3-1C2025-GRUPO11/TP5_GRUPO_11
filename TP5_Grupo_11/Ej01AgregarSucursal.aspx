@@ -28,6 +28,15 @@
             width: 145px
         }
 
+        #divBotones {
+            margin-top: 15px;
+            justify-content: center;
+            gap: 30px;
+        }
+        #divBotones > input {
+            width: 90px;
+        }
+
     </style>
 </head>
 <body>
@@ -53,6 +62,13 @@
                 <div id="divDireccionSucursal" class="formElement">
                 <asp:Label runat="server" Text="Dirección:"/>
                 <asp:TextBox ID="txtBoxDireccionSucursal" runat="server" placeholder="Dirección..."></asp:TextBox>
+                </div>
+                <div id="divBotones" class="formElement">
+                    <input type="reset"  value="Restablecer" />
+                    <asp:Button ID="btnAceptar" runat="server" Text="Aceptar" OnClick="btnAceptar_Click" />
+                </div>
+                <div id="divResultado" class="formElement">
+                    <asp:Label ID="lblResultado" runat="server" Text=""></asp:Label>
                 </div>
             </div>
         </section>

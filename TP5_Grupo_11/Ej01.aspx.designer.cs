@@ -21,7 +21,7 @@ namespace TP5_Grupo_11
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::TP5_Grupo_11.Componentes nav1;
+        protected global::TP5_Grupo_11.Nav nav1;
 
         /// <summary>
         /// Control formularioEj01.
