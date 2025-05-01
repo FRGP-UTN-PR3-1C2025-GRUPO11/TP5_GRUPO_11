@@ -10,9 +10,9 @@ namespace TP5_Grupo_11
     public class Conexion
     {
         // CADENA DE CONEXION
-        private const string cadenaConexion = @"Data Source=localhost\SQLEXPRESS;Initial Catalog=BDSucursales;Integrated Security=True;TrustServerCertificate=True";
-
-
+        private const string cadenaConexion = @"Data Source=localhost\SQLEXPRESS;
+                                                Initial Catalog=BDSucursales;
+                                                Integrated Security=True;TrustServerCertificate=True";
         
         public int ejecutarModificacion(string consultaSql)
         {
@@ -30,6 +30,7 @@ namespace TP5_Grupo_11
             // 
             int filasAfectadas = sqlCommand.ExecuteNonQuery();
 
+            sqlConnection.Close();
             return filasAfectadas;
 
         }
@@ -40,6 +41,7 @@ namespace TP5_Grupo_11
             sqlConnection.Open();
             SqlCommand sqlCommand = new SqlCommand(consultaSql, sqlConnection);
             SqlDataReader sqlDataReader = sqlCommand.ExecuteReader();
+            sqlConnection.Close();
             return sqlDataReader;
         }
 
