@@ -42,6 +42,15 @@ namespace TP5_Grupo_11
         protected global::System.Web.UI.WebControls.TextBox txtBoxNombreSucursal;
 
         /// <summary>
+        /// Control cvNombreSucursal.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.CustomValidator cvNombreSucursal;
+
+        /// <summary>
         /// Control txtBoxDescripcionSucursal.
         /// </summary>
         /// <remarks>
@@ -49,6 +58,15 @@ namespace TP5_Grupo_11
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtBoxDescripcionSucursal;
+
+        /// <summary>
+        /// Control cvDescripcionSucursal.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.CustomValidator cvDescripcionSucursal;
 
         /// <summary>
         /// Control ddlProvinciaSucursal.
@@ -69,6 +87,15 @@ namespace TP5_Grupo_11
         protected global::System.Web.UI.WebControls.TextBox txtBoxDireccionSucursal;
 
         /// <summary>
+        /// Control cvDireccionSucursal.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.CustomValidator cvDireccionSucursal;
+
+        /// <summary>
         /// Control btnAceptar.
         /// </summary>
         /// <remarks>
@@ -85,5 +112,14 @@ namespace TP5_Grupo_11
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblResultado;
+
+        /// <summary>
+        /// Control ValidationSummary.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.ValidationSummary ValidationSummary;
     }
 }
