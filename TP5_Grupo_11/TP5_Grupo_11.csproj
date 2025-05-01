@@ -74,6 +74,7 @@
     <Content Include="Ej01EliminarSucursal.aspx" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Conexion.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Ej01.aspx.cs">
       <DependentUpon>Ej01.aspx</DependentUpon>
