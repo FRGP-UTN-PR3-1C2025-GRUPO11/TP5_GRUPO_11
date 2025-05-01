@@ -50,7 +50,7 @@
                 <asp:DropDownList ID="ddlProvinciaSucursal" runat="server">
                     </asp:DropDownList>
                 </div>
-                <div id="divDieccionSucursal" class="formElement">
+                <div id="divDireccionSucursal" class="formElement">
                 <asp:Label runat="server" Text="Dirección:"/>
                 <asp:TextBox ID="txtBoxDireccionSucursal" runat="server" placeholder="Dirección..."></asp:TextBox>
                 </div>
