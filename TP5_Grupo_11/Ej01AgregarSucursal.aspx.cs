@@ -60,6 +60,24 @@ namespace TP5_Grupo_11
             txtBoxDescripcionSucursal.Text = string.Empty;
             txtBoxDireccionSucursal.Text = string.Empty;
         }
+
+        protected void cvNombreSucursal_ServerValidate(object source, ServerValidateEventArgs args)
+        {
+            if (args.Value.Length < 3)
+            {
+                args.IsValid = false;
+                cvNombreSucursal.Text = "Debe tener al menos 3 caracteres.";
+            }
+            else if (args.Value.Length > 100)
+            {
+                args.IsValid = false;
+                cvNombreSucursal.Text = "Debe ser como máximo 100 caracteres.";
+            }
+            else
+            {
+                args.IsValid = true;
+            }
+        }
     }
 
 }

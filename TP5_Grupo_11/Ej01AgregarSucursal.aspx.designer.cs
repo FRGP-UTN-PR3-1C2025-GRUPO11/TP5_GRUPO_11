@@ -42,6 +42,15 @@ namespace TP5_Grupo_11
         protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvNombreSucursal;
 
         /// <summary>
+        /// Control cvNombreSucursal.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.CustomValidator cvNombreSucursal;
+
+        /// <summary>
         /// Control txtBoxDescripcionSucursal.
         /// </summary>
         /// <remarks>
