@@ -71,8 +71,12 @@ namespace TP5_Grupo_11
 
             
             consultaSQL = "INSERT INTO Sucursal (NombreSucursal, DescripcionSucursal, Id_ProvinciaSucursal, DireccionSucursal) VALUES ('" + txtBoxNombreSucursal.Text + "','" + txtBoxDescripcionSucursal.Text + "'," + ddlProvinciaSucursal.SelectedValue + ",'" + txtBoxDireccionSucursal.Text + "')";
-            filasAfectadas = conexion.ejecutarModificacion(consultaSQL);
 
+            if (Page.IsValid)
+            {
+                filasAfectadas = conexion.ejecutarModificacion(consultaSQL);
+            }
+            
             limpiarMensaje();
             MostrarMensaje(filasAfectadas);
         }
