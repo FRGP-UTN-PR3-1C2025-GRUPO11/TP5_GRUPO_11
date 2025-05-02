@@ -25,14 +25,13 @@ namespace TP5_Grupo_11
 
               
                 string query = "SELECT P.Id_Provincia, P.DescripcionProvincia FROM Provincia AS [P]";
-                DataTable provinciasBd = conexion.ejecutarLectura(query);
+                string tabla = "Provincia";
+                DataSet provinciasBd = conexion.ejecutarLectura(query, tabla);
 
-                ddlProvinciaSucursal.DataSource = provinciasBd;
+                ddlProvinciaSucursal.DataSource = provinciasBd.Tables["Provincia"];
                 ddlProvinciaSucursal.DataTextField = "DescripcionProvincia";
                 ddlProvinciaSucursal.DataValueField = "Id_Provincia";
                 ddlProvinciaSucursal.DataBind();
-
-
 
             }
         }
