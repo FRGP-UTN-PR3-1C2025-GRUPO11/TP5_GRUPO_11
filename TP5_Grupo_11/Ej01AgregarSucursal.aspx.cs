@@ -33,7 +33,9 @@ namespace TP5_Grupo_11
                 ddlProvinciaSucursal.DataTextField = "DescripcionProvincia";
                 ddlProvinciaSucursal.DataValueField = "Id_Provincia";
                 ddlProvinciaSucursal.DataBind();
-
+                /// Cargamos un item: despues de obtener los datos:
+                ddlProvinciaSucursal.Items.Insert(0, new ListItem("-- Seleleccionar--", "0"));
+                
             }
         }
 
@@ -87,6 +89,24 @@ namespace TP5_Grupo_11
             txtBoxNombreSucursal.Text = string.Empty;
             txtBoxDescripcionSucursal.Text = string.Empty;
             txtBoxDireccionSucursal.Text = string.Empty;
+        }
+
+        protected void cvNombreSucursal_ServerValidate(object source, ServerValidateEventArgs args)
+        {
+            if (args.Value.Length < 3)
+            {
+                args.IsValid = false;
+                cvNombreSucursal.Text = "Debe tener al menos 3 caracteres.";
+            }
+            else if (args.Value.Length > 100)
+            {
+                args.IsValid = false;
+                cvNombreSucursal.Text = "Debe ser como máximo 100 caracteres.";
+            }
+            else
+            {
+                args.IsValid = true;
+            }
         }
     }
 
