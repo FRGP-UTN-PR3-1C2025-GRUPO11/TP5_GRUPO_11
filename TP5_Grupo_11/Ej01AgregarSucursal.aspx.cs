@@ -7,6 +7,7 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Data;
 using System.EnterpriseServices;
+using System.Text.RegularExpressions;
 
 
 namespace TP5_Grupo_11
@@ -38,7 +39,34 @@ namespace TP5_Grupo_11
 
         protected void btnAgregar_Click(object sender, EventArgs e)
         {
-            consultaSQL = "INSERT INTO Sucursal (NombreSucursal, DescripcionSucursal, Id_ProvinciaSucursal, DireccionSucursal) VALUES ('" + txtBoxNombreSucursal.Text + "','" + txtBoxDescripcionSucursal.Text + "'," + ddlProvinciaSucursal.SelectedValue + ",'" + txtBoxDireccionSucursal.Text + "')";
+            string nombreSucursal = txtBoxNombreSucursal.Text;
+            string direccion = txtBoxDireccionSucursal.Text;
+
+            // Expresión para validar que el nombre no sea solo números
+            Regex nombreRegex = new Regex(@"^(?![0-9]+$)[a-zA-Z0-9\s]+$");
+            Regex direccionRegex = new Regex(@"^(?![0-9]+$)[a-zA-Z0-9\s]+$");
+
+            if (!nombreRegex.IsMatch(nombreSucursal))
+            {
+                lblErrorNombre.Text = "El nombre debe contener texto y puede incluir números.";
+                return;
+            }
+            else
+            {
+                lblErrorNombre.Text = "";
+            }
+
+            if (!direccionRegex.IsMatch(direccion))
+            {
+                lblErrorDireccion.Text = "La dirección debe contener texto y números.";
+                return;
+            }
+            else
+            {
+                lblErrorDireccion.Text = "";
+            }
+
+                consultaSQL = "INSERT INTO Sucursal (NombreSucursal, DescripcionSucursal, Id_ProvinciaSucursal, DireccionSucursal) VALUES ('" + txtBoxNombreSucursal.Text + "','" + txtBoxDescripcionSucursal.Text + "'," + ddlProvinciaSucursal.SelectedValue + ",'" + txtBoxDireccionSucursal.Text + "')";
             filasAfectadas = conexion.ejecutarModificacion(consultaSQL);
 
             limpiarMensaje();

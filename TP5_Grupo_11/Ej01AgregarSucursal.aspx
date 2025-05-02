@@ -15,16 +15,16 @@
         #datosSucursal {
             display: flex; 
             flex-direction: column; 
-            gap: 10px;
-            width: 300px;
+            gap: 10px;   
         }
 
-        .formElement {
+        
+       /* .formElement {
             display: flex;
             justify-content: space-between;
             gap: 10px;
             flex-direction: row;
-        }
+        } */
 
         .formElement > select, 
         .formElement > input 
@@ -42,12 +42,13 @@
         </div>
         <section>
             <h1>GRUPO N°11</h1>
-            <div id="datosSucursal" style=";">
+            <div id="datosSucursal">
                 <asp:Label style="padding-bottom: 10px;" Text="Agregar Sucursal" runat="server" />
                 <div id="divNombreSucursal" class="formElement">
                 <asp:Label Text="Nombre Sucursal:" runat="server" />
                 <asp:TextBox ID="txtBoxNombreSucursal" runat="server" placeholder="Nombre de Sucursal..."></asp:TextBox>
                     <asp:RequiredFieldValidator ID="rfvNombreSucursal" runat="server" ControlToValidate="txtBoxNombreSucursal">Falta nombre</asp:RequiredFieldValidator>
+                    <asp:Label runat="server" ID="lblErrorNombre"></asp:Label>
                 </div>
                 <div id="divDescripcionSucursal" class="formElement">
                 <asp:Label Text="Descripción:" runat="server" />
@@ -63,6 +64,7 @@
                 <asp:Label runat="server" Text="Dirección:"/>
                 <asp:TextBox ID="txtBoxDireccionSucursal" runat="server" placeholder="Dirección..."></asp:TextBox>
                     <asp:RequiredFieldValidator ID="rfvDireccionSucursal" runat="server" ControlToValidate="txtBoxDireccionSucursal">Falta la dirección</asp:RequiredFieldValidator>
+                    <asp:Label runat="server" ID="lblErrorDireccion"></asp:Label>
                 </div>
             </div>
         </section>
