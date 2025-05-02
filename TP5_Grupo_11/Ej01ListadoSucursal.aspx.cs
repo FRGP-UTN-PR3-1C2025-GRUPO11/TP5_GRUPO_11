@@ -26,9 +26,9 @@ namespace TP5_Grupo_11
                     "P.DescripcionProvincia as [Provincia] ," +
                     "S.DireccionSucursal FROM SUCURSAL AS [S]" +
                     "INNER JOIN PROVINCIA AS [P] ON S.Id_ProvinciaSucursal = P.Id_Provincia";
-                DataTable dt = new DataTable();
-                dt = conexion.ejecutarLectura(consulta);
-                gvSucursales.DataSource = dt;
+                DataSet ds = new DataSet();
+                ds = conexion.ejecutarLectura(consulta, "SUCURSAL");
+                gvSucursales.DataSource = ds.Tables["Sucursal"];
                 gvSucursales.DataBind();
 
             }
@@ -41,9 +41,9 @@ namespace TP5_Grupo_11
         {
             Conexion conexion = new Conexion();
             string consulta = "SELECT Id_Sucursal, NombreSucursal AS [Nombre], DescripcionSucursal AS [Descripción], DireccionSucursal FROM SUCURSAL WHERE Id_Sucursal = '" + txtBusqueda.Text + "'";
-            DataTable dt = new DataTable();
-            dt = conexion.ejecutarLectura(consulta);
-            gvSucursales.DataSource = dt;
+            DataSet ds = new DataSet();
+            ds = conexion.ejecutarLectura(consulta, "Sucursal");
+            gvSucursales.DataSource = ds.Tables["Sucursal"];
             gvSucursales.DataBind();
             txtBusqueda.Text = String.Empty;
         }
