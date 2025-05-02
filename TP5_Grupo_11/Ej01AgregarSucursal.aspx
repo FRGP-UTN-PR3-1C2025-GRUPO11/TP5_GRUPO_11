@@ -70,6 +70,7 @@
                 <asp:DropDownList ID="ddlProvinciaSucursal" runat="server">
                     <asp:ListItem Enabled="True" Text="--Seleccionar--" Value="0"></asp:ListItem>
                     </asp:DropDownList>
+                    <asp:RequiredFieldValidator ID="rfvProvincia" runat="server" ControlToValidate="ddlProvinciaSucursal" ErrorMessage="Seleccione una Provincia" InitialValue="0"></asp:RequiredFieldValidator>
                 </div>
                 <%-- DIRECCION SUCURSAL --%>
                 <div id="divDieccionSucursal" class="formElement">

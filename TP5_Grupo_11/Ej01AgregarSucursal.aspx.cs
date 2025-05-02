@@ -41,8 +41,11 @@ namespace TP5_Grupo_11
 
         protected void btnAgregar_Click(object sender, EventArgs e)
         {
+            lblAgregado.Text = null;
             string nombreSucursal = txtBoxNombreSucursal.Text;
             string direccion = txtBoxDireccionSucursal.Text;
+            string descripcion = txtBoxDescripcionSucursal.Text.Trim();
+            int idProvincia = int.Parse(ddlProvinciaSucursal.SelectedValue);
 
             // Expresión para validar que el nombre no sea solo números
             Regex nombreRegex = new Regex(@"^(?![0-9]+$)[a-zA-Z0-9\s]+$");
@@ -69,7 +72,16 @@ namespace TP5_Grupo_11
                 lblErrorDireccion.Text = "";
             }
 
-            
+            string consultaVerificar = $"SELECT COUNT(*) FROM Sucursal WHERE LOWER(DireccionSucursal) = '{direccion.ToLower().Replace("'", "''")}' AND Id_ProvinciaSucursal = {idProvincia}";
+            DataSet resultado = conexion.ejecutarLectura(consultaVerificar, "Sucursal");
+            int cantidad = Convert.ToInt32(resultado.Tables[0].Rows[0][0]);
+
+            if (cantidad > 0)
+            {
+                lblErrorDireccion.Text = "Ya existe una sucursal con esa dirección en esta provincia.";
+                return;
+            }
+
             consultaSQL = "INSERT INTO Sucursal (NombreSucursal, DescripcionSucursal, Id_ProvinciaSucursal, DireccionSucursal) VALUES ('" + txtBoxNombreSucursal.Text + "','" + txtBoxDescripcionSucursal.Text + "'," + ddlProvinciaSucursal.SelectedValue + ",'" + txtBoxDireccionSucursal.Text + "')";
 
             if (Page.IsValid)
@@ -95,6 +107,8 @@ namespace TP5_Grupo_11
             txtBoxNombreSucursal.Text = string.Empty;
             txtBoxDescripcionSucursal.Text = string.Empty;
             txtBoxDireccionSucursal.Text = string.Empty;
+            ddlProvinciaSucursal.SelectedIndex = 0;
+
         }
 
         protected void cvNombreSucursal_ServerValidate(object source, ServerValidateEventArgs args)
