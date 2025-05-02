@@ -9,9 +9,26 @@
     <title>Eliminar Sucursal</title>
 </head>
 <body>
-    <uc:Nav runat="server" ID="nav1" />
-    <form id="formularioEj01EliminarSucursal" runat="server">
+    <style>
+        main {
+            margin: 0 auto;
+            width: 960px;
+        }
+    </style>
 
+    <main>
+    <uc:Nav runat="server" ID="nav1" />
+    <h1>Eliminar Sucursal</h1>
+    <form id="formularioEj01EliminarSucursal" runat="server">
+        <label style="width: 200px; display: inline-block">Ingresar ID Sucursal</label>
+        <asp:TextBox ID="txtSucursal" runat="server" ></asp:TextBox>
+        <asp:Button ID="btnEliminar" runat="server" Text="Eliminar" OnClick="btnEliminar_Click" />
+        <div style="margin-left: 200px; margin-top:5px; color: red; font-weight: bolder">
+            <asp:RegularExpressionValidator ID="revtxtSucursal" runat="server" ErrorMessage="Debe ser un valor numérico" ControlToValidate="txtSucursal" ValidationExpression="^[0-9]*$" Display="Dynamic"></asp:RegularExpressionValidator>
+
+        </div>
+        <asp:Label ID="lblResultado" runat="server" Text=""></asp:Label>
     </form>
+    </main>
 </body>
 </html>
