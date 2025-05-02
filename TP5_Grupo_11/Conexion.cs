@@ -23,8 +23,12 @@ namespace TP5_Grupo_11
             sqlConnection.Open();
 
             // CREA UNA VARIABLE SQL COMMAND Y TRAE LOS PARAMETROS DE LOS FORMS
-            SqlCommand sqlCommand = new SqlCommand(consultaSql, sqlConnection);
-         
+            SqlCommand sqlCommand = new SqlCommand();
+
+            sqlCommand.Connection = sqlConnection;
+            sqlCommand.CommandText = consultaSql.ToString();
+
+
             // EJECUTAR CONSULTA
             // ExecuteNonQuery se usa para INSERT-UPDATE-DELETE
             // 
@@ -32,7 +36,7 @@ namespace TP5_Grupo_11
 
             sqlConnection.Close();
             return filasAfectadas;
-
+             
         }
 
         public DataTable ejecutarLectura(string consultaSql)

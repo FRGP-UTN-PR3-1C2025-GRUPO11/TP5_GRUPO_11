@@ -9,8 +9,32 @@
     <title>Listado Sucursales</title>
 </head>
 <body>
+    <style>
+        .divBusqueda 
+        {
+            margin: 15px 15px;
+            display: flex;
+            gap:10px;
+        }
+    </style>
     <uc:Nav runat="server" ID="nav1" /> 
+    
+    <h1>Listado de Sucursales</h1>
     <form id="formularioEj01ListadoSucursal" runat="server">
+        <div class="divBusqueda">
+            <label for="" style="width: 250px">Búsqueda ingrese Id sucursal</label>
+            <div style="margin-right:100px">
+                <div>
+                <asp:TextBox ID="txtBusqueda" runat="server" style="margin-right: 30px; width: 150px"></asp:TextBox>
+                </div>
+                <div>
+                    <asp:RegularExpressionValidator ID="revBusqueda" runat="server" ErrorMessage="Debe ingresar un valor numérico" ControlToValidate="txtBusqueda" ValidationExpression="^[0-9]*$" style="color: red; font-weight: bolder;"></asp:RegularExpressionValidator>
+                </div>
+            </div>
+            <asp:Button ID="btnFiltrar" runat="server" Text="Filtrar" OnClick="btnFiltrar_Click" />
+            <asp:Button ID="btnMostrarTodos" runat="server" Text="Mostrar todos" OnClick="btnMostrarTodos_Click" />
+        </div>
+        <asp:GridView ID="gvSucursales" runat="server" CellPadding="5"></asp:GridView>
     </form>
 </body>
 </html>
