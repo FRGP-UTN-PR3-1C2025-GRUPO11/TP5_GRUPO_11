@@ -10,31 +10,41 @@
 </head>
 <body>
     <style>
+        main {
+            margin: 0 auto;
+            width: 960px;
+        }
+
         .divBusqueda 
         {
-            margin: 15px 15px;
+            margin: 15px auto;
+            margin-bottom: 50px;
             display: flex;
             gap:10px;
         }
     </style>
     <uc:Nav runat="server" ID="nav1" /> 
     
+    <main>
     <h1>Listado de Sucursales</h1>
     <form id="formularioEj01ListadoSucursal" runat="server">
         <div class="divBusqueda">
             <label for="" style="width: 250px">Búsqueda ingrese Id sucursal</label>
             <div style="margin-right:100px">
                 <div>
-                <asp:TextBox ID="txtBusqueda" runat="server" style="margin-right: 30px; width: 150px"></asp:TextBox>
+                <asp:TextBox ID="txtBusqueda" runat="server" style="margin-right: 30px; width: 200px; border: 1px solid"></asp:TextBox>
                 </div>
                 <div>
-                    <asp:RegularExpressionValidator ID="revBusqueda" runat="server" ErrorMessage="Debe ingresar un valor numérico" ControlToValidate="txtBusqueda" ValidationExpression="^[0-9]*$" style="color: red; font-weight: bolder;"></asp:RegularExpressionValidator>
+                    <asp:RegularExpressionValidator ID="revBusqueda" runat="server" ErrorMessage="Debe ingresar un valor numérico" ControlToValidate="txtBusqueda" ValidationExpression="^[0-9]*$" style="color: red; font-weight: bolder;" Display="Dynamic"></asp:RegularExpressionValidator>
+                    <asp:RequiredFieldValidator ID="rfvBusqueda" runat="server" ErrorMessage="No puede estar vacío" ControlToValidate="txtBusqueda" style="color: red; font-weight: bolder;" Display="Dynamic"></asp:RequiredFieldValidator>
+                    <%--<asp:ValidationSummary ID="ValidationSummary1" runat="server" Height="50px" />--%>
                 </div>
             </div>
-            <asp:Button ID="btnFiltrar" runat="server" Text="Filtrar" OnClick="btnFiltrar_Click" />
-            <asp:Button ID="btnMostrarTodos" runat="server" Text="Mostrar todos" OnClick="btnMostrarTodos_Click" />
+            <asp:Button ID="btnFiltrar" runat="server" Text="Filtrar" OnClick="btnFiltrar_Click" Height="35px" />
+            <asp:Button ID="btnMostrarTodos" runat="server" Text="Mostrar todos" OnClick="btnMostrarTodos_Click" Height="35px" />
         </div>
-        <asp:GridView ID="gvSucursales" runat="server" CellPadding="5"></asp:GridView>
+        <asp:GridView ID="gvSucursales" runat="server" CellPadding="5" Width="900px"></asp:GridView>
     </form>
+     </main>
 </body>
 </html>
