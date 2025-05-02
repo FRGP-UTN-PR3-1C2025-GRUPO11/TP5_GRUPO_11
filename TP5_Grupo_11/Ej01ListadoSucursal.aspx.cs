@@ -45,6 +45,7 @@ namespace TP5_Grupo_11
             dt = conexion.ejecutarLectura(consulta);
             gvSucursales.DataSource = dt;
             gvSucursales.DataBind();
+            txtBusqueda.Text = String.Empty;
         }
 
         protected void btnMostrarTodos_Click(object sender, EventArgs e)

@@ -36,8 +36,6 @@
                 </div>
                 <div>
                     <asp:RegularExpressionValidator ID="revBusqueda" runat="server" ErrorMessage="Debe ingresar un valor numérico" ControlToValidate="txtBusqueda" ValidationExpression="^[0-9]*$" style="color: red; font-weight: bolder;" Display="Dynamic"></asp:RegularExpressionValidator>
-                    <asp:RequiredFieldValidator ID="rfvBusqueda" runat="server" ErrorMessage="No puede estar vacío" ControlToValidate="txtBusqueda" style="color: red; font-weight: bolder;" Display="Dynamic"></asp:RequiredFieldValidator>
-                    <%--<asp:ValidationSummary ID="ValidationSummary1" runat="server" Height="50px" />--%>
                 </div>
             </div>
             <asp:Button ID="btnFiltrar" runat="server" Text="Filtrar" OnClick="btnFiltrar_Click" Height="35px" />
