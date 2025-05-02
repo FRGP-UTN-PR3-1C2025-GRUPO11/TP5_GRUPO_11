@@ -1,4 +1,8 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Ej01AgregarSucursal.aspx.cs" Inherits="TP5_Grupo_11.Ej01AgregarSucursal" %>
+﻿<%@ Page Language="C#" 
+    AutoEventWireup="true" 
+    CodeBehind="Ej01AgregarSucursal.aspx.cs" 
+    UnobtrusiveValidationMode="None"
+    Inherits="TP5_Grupo_11.Ej01AgregarSucursal" %>
 
 <!DOCTYPE html>
 
@@ -43,7 +47,9 @@
         <section>
             <h1>GRUPO N°11</h1>
             <div id="datosSucursal" style=";">
+                <%-- TITULO SUCURSAL --%>
                 <asp:Label style="padding-bottom: 10px;" Text="Agregar Sucursal" runat="server" />
+                <%-- NOMBRE SUCURSAL --%>
                 <div id="divNombreSucursal" class="formElement">
                 <asp:Label Text="Nombre Sucursal:" runat="server" />
                 <asp:TextBox ID="txtBoxNombreSucursal" runat="server" placeholder="Nombre de Sucursal..."></asp:TextBox>
@@ -51,16 +57,20 @@
                     <asp:CustomValidator ID="cvNombreSucursal" runat="server" ErrorMessage="Máximo 100 caracteres" Display="Dynamic" ControlToValidate="txtBoxNombreSucursal" 
                             EnableClientScript="False" Font-Bold="True" ForeColor="Red" OnServerValidate="cvNombreSucursal_ServerValidate"></asp:CustomValidator>
                 </div>
+                <%-- DESCRIPCION SUCURSALR --%>
                 <div id="divDescripcionSucursal" class="formElement">
                 <asp:Label Text="Descripción:" runat="server" />
                 <asp:TextBox ID="txtBoxDescripcionSucursal" runat="server" placeholder="Descripción..."></asp:TextBox>
                     <asp:RequiredFieldValidator ID="rfvDescripSucursal" runat="server" ControlToValidate="txtBoxDescripcionSucursal">Falta descripción</asp:RequiredFieldValidator>
                 </div>
+                <%-- PROVINCIAS SUCURSAL --%>
                 <div id="divProvinciaSucursal" class="formElement">
                 <asp:Label Text="Provincia:" runat="server" />
                 <asp:DropDownList ID="ddlProvinciaSucursal" runat="server">
+                    <asp:ListItem Enabled="True" Text="--Seleccionar--" Value="0"></asp:ListItem>
                     </asp:DropDownList>
                 </div>
+                <%-- DIRECCION SUCURSAL --%>
                 <div id="divDieccionSucursal" class="formElement">
                 <asp:Label runat="server" Text="Dirección:"/>
                 <asp:TextBox ID="txtBoxDireccionSucursal" runat="server" placeholder="Dirección..."></asp:TextBox>
@@ -68,6 +78,7 @@
                 </div>
             </div>
         </section>
+            
         <asp:Button ID="btnAgregar" runat="server" OnClick="btnAgregar_Click" Text="Agregar" />
         <p>
             <asp:Label ID="lblAgregado" runat="server"></asp:Label>
