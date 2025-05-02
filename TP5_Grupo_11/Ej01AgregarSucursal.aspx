@@ -60,8 +60,9 @@
                 <%-- DESCRIPCION SUCURSALR --%>
                 <div id="divDescripcionSucursal" class="formElement">
                 <asp:Label Text="Descripción:" runat="server" />
-                <asp:TextBox ID="txtBoxDescripcionSucursal" runat="server" placeholder="Descripción..."></asp:TextBox>
+                <asp:TextBox ID="txtBoxDescripcionSucursal" runat="server" placeholder="Descripción..." TextMode="MultiLine"></asp:TextBox>
                     <asp:RequiredFieldValidator ID="rfvDescripSucursal" runat="server" ControlToValidate="txtBoxDescripcionSucursal">Falta descripción</asp:RequiredFieldValidator>
+                &nbsp;<asp:CustomValidator ID="cvDescripcion" runat="server" ControlToValidate="txtBoxDescripcionSucursal" OnServerValidate="cvDescripcion_ServerValidate">No se puede ingresar mas de 100 letras</asp:CustomValidator>
                 </div>
                 <%-- PROVINCIAS SUCURSAL --%>
                 <div id="divProvinciaSucursal" class="formElement">
@@ -76,6 +77,7 @@
                 <asp:TextBox ID="txtBoxDireccionSucursal" runat="server" placeholder="Dirección..."></asp:TextBox>
                     <asp:RequiredFieldValidator ID="rfvDireccionSucursal" runat="server" ControlToValidate="txtBoxDireccionSucursal">Falta la dirección</asp:RequiredFieldValidator>
                     <asp:Label runat="server" ID="lblErrorDireccion"></asp:Label>
+                &nbsp;<asp:CustomValidator ID="cvDireccion" runat="server" ControlToValidate="txtBoxDireccionSucursal" OnServerValidate="cvDireccion_ServerValidate">No se puede ingresar mas de 100 letras</asp:CustomValidator>
                 </div>
             </div>
         </section>

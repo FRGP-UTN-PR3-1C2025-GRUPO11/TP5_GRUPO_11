@@ -48,6 +48,7 @@ namespace TP5_Grupo_11
             Regex nombreRegex = new Regex(@"^(?![0-9]+$)[a-zA-Z0-9\s]+$");
             Regex direccionRegex = new Regex(@"^(?![0-9]+$)[a-zA-Z0-9\s]+$");
 
+
             if (!nombreRegex.IsMatch(nombreSucursal))
             {
                 lblErrorNombre.Text = "El nombre debe contener texto y puede incluir números.";
@@ -68,7 +69,8 @@ namespace TP5_Grupo_11
                 lblErrorDireccion.Text = "";
             }
 
-                consultaSQL = "INSERT INTO Sucursal (NombreSucursal, DescripcionSucursal, Id_ProvinciaSucursal, DireccionSucursal) VALUES ('" + txtBoxNombreSucursal.Text + "','" + txtBoxDescripcionSucursal.Text + "'," + ddlProvinciaSucursal.SelectedValue + ",'" + txtBoxDireccionSucursal.Text + "')";
+            
+            consultaSQL = "INSERT INTO Sucursal (NombreSucursal, DescripcionSucursal, Id_ProvinciaSucursal, DireccionSucursal) VALUES ('" + txtBoxNombreSucursal.Text + "','" + txtBoxDescripcionSucursal.Text + "'," + ddlProvinciaSucursal.SelectedValue + ",'" + txtBoxDireccionSucursal.Text + "')";
             filasAfectadas = conexion.ejecutarModificacion(consultaSQL);
 
             limpiarMensaje();
@@ -102,6 +104,42 @@ namespace TP5_Grupo_11
             {
                 args.IsValid = false;
                 cvNombreSucursal.Text = "Debe ser como máximo 100 caracteres.";
+            }
+            else
+            {
+                args.IsValid = true;
+            }
+        }
+
+        protected void cvDescripcion_ServerValidate(object source, ServerValidateEventArgs args)
+        {
+            if (args.Value.Length < 3)
+            {
+                args.IsValid = false;
+                cvDescripcion.Text = "Debe tener al menos 3 caracteres.";
+            }
+            else if (args.Value.Length > 100)
+            {
+                args.IsValid = false;
+                cvDescripcion.Text = "Debe ser como máximo 100 caracteres.";
+            }
+            else
+            {
+                args.IsValid = true;
+            }
+        }
+
+        protected void cvDireccion_ServerValidate(object source, ServerValidateEventArgs args)
+        {
+            if (args.Value.Length < 3)
+            {
+                args.IsValid = false;
+                cvDireccion.Text = "Debe tener al menos 3 caracteres.";
+            }
+            else if (args.Value.Length > 100)
+            {
+                args.IsValid = false;
+                cvDireccion.Text = "Debe ser como máximo 100 caracteres.";
             }
             else
             {
