@@ -10,11 +10,13 @@ namespace TP5_Grupo_11
 {
     public partial class Ej01ListadoSucursal : System.Web.UI.Page
     {
+        Conexion conexion = new Conexion();
+        private string consultaSql;
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
             {
-                Conexion conexion = new Conexion();
+               
                 string consulta = "SELECT S.Id_Sucursal, " +
                     "S.NombreSucursal AS [Nombre], " +
                     "S.DescripcionSucursal AS [Descripción]," +
@@ -29,5 +31,19 @@ namespace TP5_Grupo_11
             }
 
         }
+        protected void btnFiltrar_Click(object sender, EventArgs e)
+        {
+
+            consultaSql = "SELECT * FROM Sucursal WHERE Id_Sucursal=" + txtBusqueda.Text;
+
+            DataSet set = conexion.ejecutarLectura(consultaSql, "Sucursal");
+
+            gvSucursales.DataSource = set.Tables["Sucursal"];
+            gvSucursales.DataBind();
+            
+            txtBusqueda.Text = string.Empty;
+        }
+        
+       
     }
 }

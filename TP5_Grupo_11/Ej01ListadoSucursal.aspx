@@ -48,7 +48,8 @@
                     </div>
                 </div>
                 </div>
-                [filtrar] [mostrar todos]
+                &nbsp;<asp:Button ID="btnFiltrar" runat="server" OnClick="btnFiltrar_Click" Text="Filtrar" />
+                [mostrar todos]
                 </div>
             <asp:GridView ID="gvSucursales" runat="server" CellPadding="5" Width="900px"></asp:GridView>
             </div>
