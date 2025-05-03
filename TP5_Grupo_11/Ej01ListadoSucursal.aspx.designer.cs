@@ -33,6 +33,15 @@ namespace TP5_Grupo_11
         protected global::System.Web.UI.WebControls.TextBox txtBusqueda;
 
         /// <summary>
+        /// Control lblErrorBusqueda.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblErrorBusqueda;
+
+        /// <summary>
         /// Control btnFiltrar.
         /// </summary>
         /// <remarks>
@@ -40,6 +49,15 @@ namespace TP5_Grupo_11
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnFiltrar;
+
+        /// <summary>
+        /// Control btnMostrarTodos.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnMostrarTodos;
 
         /// <summary>
         /// Control gvSucursales.

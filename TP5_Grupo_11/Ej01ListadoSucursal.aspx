@@ -42,14 +42,16 @@
                 <label for="" style="width: 250px">Búsqueda ingrese Id sucursal</label>
                 <div style="margin-right:100px">
                 <div>
-                    <asp:TextBox ID="txtBusqueda" runat="server" style="margin-right: 30px; width: 200px"></asp:TextBox>
+                    <asp:TextBox ID="txtBusqueda" runat="server" style="margin-right: 30px; width: 200px">
+                    </asp:TextBox>
+                    <asp:Label runat="server" ID="lblErrorBusqueda"></asp:Label>
                     <div>
                         [validador]
                     </div>
                 </div>
                 </div>
                 &nbsp;<asp:Button ID="btnFiltrar" runat="server" OnClick="btnFiltrar_Click" Text="Filtrar" />
-                [mostrar todos]
+                <asp:Button runat="server" Text="Mostrar Todos" ID="btnMostrarTodos" OnClick="btnMostrarTodos_Click"/>
                 </div>
             <asp:GridView ID="gvSucursales" runat="server" CellPadding="5" Width="900px"></asp:GridView>
             </div>
