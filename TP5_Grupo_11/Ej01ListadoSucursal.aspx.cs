@@ -37,7 +37,7 @@ namespace TP5_Grupo_11
         protected void btnFiltrar_Click(object sender, EventArgs e)
         {
 
-                consultaSql = "SELECT * FROM Sucursal WHERE Id_Sucursal = " + txtBusqueda.Text;
+            consultaSql = "SELECT * FROM Sucursal WHERE Id_Sucursal = " + txtBusqueda.Text;
 
             DataSet set = conexion.ejecutarLectura(consultaSql, "Sucursal");
 
