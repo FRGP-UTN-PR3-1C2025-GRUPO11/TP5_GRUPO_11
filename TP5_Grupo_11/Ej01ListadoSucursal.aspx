@@ -42,20 +42,26 @@
                 <label for="" style="width: 250px">Búsqueda ingrese Id sucursal</label>
                 <div style="margin-right:100px">
                 <div>
-                    <asp:TextBox ID="txtBusqueda" runat="server" style="margin-right: 30px; width: 200px">
-                    </asp:TextBox>
+                    <asp:TextBox ID="txtBusqueda" runat="server" style="margin-right: 30px; width: 200px" ValidationGroup="Grupo1"></asp:TextBox>
                     <asp:Label runat="server" ID="lblErrorBusqueda"></asp:Label>
                     <div>
-                        [validador]
+                        &nbsp;<asp:RegularExpressionValidator ID="rfvIdSucursal" runat="server" ControlToValidate="txtBusqueda" Font-Bold="True" ForeColor="Red" ValidationExpression="^\d+$" ValidationGroup="Grupo1">Debe ingresar un solo números</asp:RegularExpressionValidator>
+&nbsp;<asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="txtBusqueda" Font-Bold="True" ForeColor="Red" ValidationGroup="Grupo1">Debe ingresar un número</asp:RequiredFieldValidator>
                     </div>
                 </div>
                 </div>
-                &nbsp;<asp:Button ID="btnFiltrar" runat="server" OnClick="btnFiltrar_Click" Text="Filtrar" />
+                &nbsp;<asp:Button ID="btnFiltrar" runat="server" OnClick="btnFiltrar_Click" Text="Filtrar" ValidationGroup="Grupo1" />
                 <asp:Button runat="server" Text="Mostrar Todos" ID="btnMostrarTodos" OnClick="btnMostrarTodos_Click"/>
+                <br />
+                <br />
                 </div>
             <asp:GridView ID="gvSucursales" runat="server" CellPadding="5" Width="900px"></asp:GridView>
             </div>
         </form>
     </main>
+    <p>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <asp:Label ID="lblListado" runat="server" Font-Bold="True" Font-Size="Medium" ForeColor="Red"></asp:Label>
+    </p>
 </body>
 </html>
