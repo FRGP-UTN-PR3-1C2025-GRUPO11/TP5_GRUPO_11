@@ -12,10 +12,6 @@
           display: flex;
           gap: 100px;
       }
-    </style>
-</head>
-<body>
-    <style>
         main 
         {
             margin: 0 auto;
@@ -30,6 +26,8 @@
             gap:10px;
         }
     </style>
+</head>
+<body>
     <main>
         <h1>Listado de Sucursales</h1>
 
