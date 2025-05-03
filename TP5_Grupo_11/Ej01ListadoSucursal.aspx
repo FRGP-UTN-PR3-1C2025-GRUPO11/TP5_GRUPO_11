@@ -52,8 +52,9 @@
                 </div>
                 &nbsp;<asp:Button ID="btnFiltrar" runat="server" OnClick="btnFiltrar_Click" Text="Filtrar" />
                 <asp:Button runat="server" Text="Mostrar Todos" ID="btnMostrarTodos" OnClick="btnMostrarTodos_Click"/>
-                </div>
-            <asp:GridView ID="gvSucursales" runat="server" CellPadding="5" Width="900px"></asp:GridView>
+            </div>
+            <div>
+                <asp:GridView ID="gvSucursales" runat="server" CellPadding="5" Width="900px"></asp:GridView>
             </div>
         </form>
     </main>
