@@ -19,9 +19,13 @@ namespace TP5_Grupo_11
 
         protected void btnEliminar_Click(object sender, EventArgs e)
         {
-            consultaSql = "DELETE FROM Sucursal WHERE Id_Sucursal=" + txtSucursal.Text;
-
-            filasAlt = conexion.ejecutarModificacion(consultaSql);
+            if (Page.IsValid)
+            {
+                consultaSql = "DELETE FROM Sucursal WHERE Id_Sucursal=" + txtSucursal.Text;
+                filasAlt = conexion.ejecutarModificacion(consultaSql);
+            }
         }
+
+      
     }
 }
