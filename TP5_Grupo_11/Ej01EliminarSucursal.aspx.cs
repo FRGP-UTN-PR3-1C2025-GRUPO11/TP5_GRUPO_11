@@ -23,6 +23,7 @@ namespace TP5_Grupo_11
             int idSucursal;
             if (!int.TryParse(txtSucursal.Text, out idSucursal))
             {
+                txtSucursal.Text = string.Empty;
                 resultado.Text = "ID inválido.";
                 return;
             }
@@ -31,12 +32,15 @@ namespace TP5_Grupo_11
 
             if (ds.Tables["Sucursal"].Rows.Count == 0)
             {
+                txtSucursal.Text = string.Empty;
                 resultado.Text = "La sucursal con ese ID no existe.";
                 return;
             }
 
             consultaSql = "DELETE FROM Sucursal WHERE Id_Sucursal=" + txtSucursal.Text;
             resultado.Text = "La sucursal se ha eliminado con éxito";
+
+            txtSucursal.Text = string.Empty;
 
             filasAlt = conexion.ejecutarModificacion(consultaSql);
         }
