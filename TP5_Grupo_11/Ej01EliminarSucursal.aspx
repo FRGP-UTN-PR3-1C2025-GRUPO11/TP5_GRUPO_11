@@ -36,10 +36,9 @@ label {
             <asp:TextBox ID="txtSucursal" runat="server" ></asp:TextBox>
             <asp:Button ID="btnEliminar" runat="server" Height="29px" OnClick="btnEliminar_Click" Text="Eliminar" />
 &nbsp;<div style="margin-left: 200px; margin-top:5px; color: red; font-weight: bolder">
-                [validador]&nbsp;
-         <asp:RequiredFieldValidator ID="rfvSucursal" runat="server" ControlToValidate="txtSucursal" ErrorMessage="Debe ingresar un ID de sucursal" ForeColor="Red" Display="Dynamic" />
+                &nbsp;<asp:RequiredFieldValidator ID="rfvSucursal" runat="server" ControlToValidate="txtSucursal" ErrorMessage="Debe ingresar un ID de sucursal" ForeColor="Red" Display="Dynamic" />
                 </div>
-            [resultado]
+            <asp:Label ID="resultado" runat="server"></asp:Label>
         </form>
     </main>
 </body>

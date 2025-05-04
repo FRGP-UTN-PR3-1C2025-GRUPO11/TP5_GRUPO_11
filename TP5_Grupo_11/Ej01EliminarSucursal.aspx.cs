@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Data.SqlClient;
+using System.Data;
 namespace TP5_Grupo_11
 {
     public partial class Ej01EliminarSucursal : System.Web.UI.Page
@@ -19,13 +20,27 @@ namespace TP5_Grupo_11
 
         protected void btnEliminar_Click(object sender, EventArgs e)
         {
-            if (Page.IsValid)
+            int idSucursal;
+            if (!int.TryParse(txtSucursal.Text, out idSucursal))
             {
-                consultaSql = "DELETE FROM Sucursal WHERE Id_Sucursal=" + txtSucursal.Text;
-                filasAlt = conexion.ejecutarModificacion(consultaSql);
+                resultado.Text = "ID inválido.";
+                return;
             }
+            string consultaSql = "SELECT * FROM Sucursal WHERE Id_Sucursal = " + txtSucursal.Text;
+            DataSet ds = conexion.ejecutarLectura(consultaSql, "Sucursal");
+
+            if (ds.Tables["Sucursal"].Rows.Count == 0)
+            {
+                resultado.Text = "La sucursal con ese ID no existe.";
+                return;
+            }
+
+            consultaSql = "DELETE FROM Sucursal WHERE Id_Sucursal=" + txtSucursal.Text;
+            resultado.Text = "La sucursal se ha eliminado con éxito";
+
+            filasAlt = conexion.ejecutarModificacion(consultaSql);
         }
 
-      
+
     }
 }
