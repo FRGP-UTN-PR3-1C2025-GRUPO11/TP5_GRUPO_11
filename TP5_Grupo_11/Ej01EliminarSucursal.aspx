@@ -16,6 +16,9 @@ main {
     margin: 0 auto;
     width: 960px;
 }
+label {
+    display: inline-block;
+}
     </style>
 </head>
 <body>
@@ -24,9 +27,12 @@ main {
             <asp:HyperLink runat="server" Text="Agregar Sucursal" NavigateUrl="~/Ej01AgregarSucursal.aspx"></asp:HyperLink>
             <asp:HyperLink runat="server" Text="Listado de Sucursales" NavigateUrl="~/Ej01ListadoSucursal.aspx"></asp:HyperLink>
         </div>
+        <%-- TITULO  --%>
         <h1>Eliminar Sucursales</h1>
         <form id="formularioEj01EliminarSucursal" runat="server">
-            <label style="width: 200px; display: inline-block">Ingresar ID Sucursal</label>
+            <div class="contenedor__eliminarSucursales">
+                <asp:Label Text="Ingresar ID Sucursal" runat="server" ID="lblShowID" /> 
+            </div>
             <asp:TextBox ID="txtSucursal" runat="server" ></asp:TextBox>
             [boton]
             <div style="margin-left: 200px; margin-top:5px; color: red; font-weight: bolder">
