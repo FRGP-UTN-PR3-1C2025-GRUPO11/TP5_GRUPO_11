@@ -18,7 +18,12 @@
     <form id="formularioEj01EliminarSucursal" runat="server">
         <div class="divHyperLinks">
             <asp:HyperLink runat="server" Text="Agregar Sucursal" NavigateUrl="~/Ej01AgregarSucursal.aspx"></asp:HyperLink>
-<asp:HyperLink runat="server" Text="Listado de Sucursales" NavigateUrl="~/Ej01ListadoSucursal.aspx"></asp:HyperLink>
+            <asp:HyperLink runat="server" Text="Listado de Sucursales" NavigateUrl="~/Ej01ListadoSucursal.aspx"></asp:HyperLink>
+        </div>
+        <%-- TITULO --%>
+        <h1>Elminar Sucrusales</h1>
+        <div class="contenedor__elimnarSucursales">
+            <asp:Label runat="server" Text="Ingrese ID sucursal:" ID="lblShowID"></asp:Label>
         </div>
     </form>
 </body>

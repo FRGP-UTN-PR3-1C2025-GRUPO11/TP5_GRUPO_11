@@ -8,13 +8,13 @@ using System.Data.SqlClient;
 namespace TP5_Grupo_11
 {
     public class Conexion
-    {
+  {
     // CADENA DE CONEXION
     private const string cadenaConexion = @"Data Source=DESKTOP-6LDIHKB\SQLEXPRESS;
                                                 Initial Catalog=BDSucursales;
                                                 Integrated Security=True;TrustServerCertificate=True";
 
-
+    // private const string cadenaConexion = @"Data Source=DESKTOP-LFTFVP5\SQLEXPRESS;Initial Catalog=BDSucursales;Integrated Security=True";
     public int ejecutarModificacion(string consultaSql)
         {
             // ESTABLECE LA CONEXION A SQL SERVER
