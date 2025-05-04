@@ -15,6 +15,8 @@ namespace TP5_Grupo_11
         private string consultaSql;
         protected void Page_Load(object sender, EventArgs e)
         {
+
+            Page.UnobtrusiveValidationMode = UnobtrusiveValidationMode.None;
             if (!IsPostBack)
             {
                
@@ -35,14 +37,26 @@ namespace TP5_Grupo_11
         protected void btnFiltrar_Click(object sender, EventArgs e)
         {
 
-                consultaSql = "SELECT * FROM Sucursal WHERE Id_Sucursal = " + txtBusqueda.Text;
+            consultaSql = "SELECT * FROM Sucursal WHERE Id_Sucursal = " + txtBusqueda.Text;
 
             DataSet set = conexion.ejecutarLectura(consultaSql, "Sucursal");
 
-            gvSucursales.DataSource = set.Tables["Sucursal"];
-            gvSucursales.DataBind();
+            if (set.Tables["Sucursal"].Rows.Count > 0)
+            {
+                gvSucursales.DataSource = set.Tables["Sucursal"];
+                gvSucursales.DataBind();
+                lblListado.Text = "";
+            }
+            else
+            {
+                lblListado.Text = "No se encontró ninguna sucursal con esa Id";
+                gvSucursales.DataSource = null;
+                gvSucursales.DataBind();
+            }
+
+                txtBusqueda.Text = string.Empty;
+
             
-            txtBusqueda.Text = string.Empty;
         }
 
         protected void btnMostrarTodos_Click(object sender, EventArgs e)
@@ -60,6 +74,8 @@ namespace TP5_Grupo_11
             gvSucursales.DataBind();
 
             txtBusqueda.Text = string.Empty; 
+
+            lblListado.Text = string.Empty;
         }
     }
 }
