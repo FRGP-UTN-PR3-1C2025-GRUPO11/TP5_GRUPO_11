@@ -17,6 +17,7 @@ namespace TP5_Grupo_11
         private string consultaSQL;
         private int filasAfectadas;
         Conexion conexion = new Conexion();
+        private int respuesta;
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -82,24 +83,37 @@ namespace TP5_Grupo_11
                 return;
             }
 
-            consultaSQL = "INSERT INTO Sucursal (NombreSucursal, DescripcionSucursal, Id_ProvinciaSucursal, DireccionSucursal) VALUES ('" + txtBoxNombreSucursal.Text + "','" + txtBoxDescripcionSucursal.Text + "'," + ddlProvinciaSucursal.SelectedValue + ",'" + txtBoxDireccionSucursal.Text + "')";
+            //consultaSQL = "INSERT INTO Sucursal (NombreSucursal, DescripcionSucursal, Id_ProvinciaSucursal, DireccionSucursal) VALUES ('" + txtBoxNombreSucursal.Text + "','" + txtBoxDescripcionSucursal.Text + "'," + ddlProvinciaSucursal.SelectedValue + ",'" + txtBoxDireccionSucursal.Text + "')";
 
             if (Page.IsValid)
             {
-                filasAfectadas = conexion.ejecutarModificacion(consultaSQL);
+                //filasAfectadas = conexion.ejecutarModificacion(consultaSQL);
+                respuesta = conexion.agregarSucursal("sp_AgregarSucursal", nombreSucursal, descripcion, idProvincia, direccion);
             }
             
             limpiarMensaje();
-            MostrarMensaje(filasAfectadas);
+            MostrarMensaje(respuesta);
         }
     
 
 
-        private void MostrarMensaje(int filasAfectadas)
+        private void MostrarMensaje(int respuesta)
         {
-            if (filasAfectadas == 1)
+            if (respuesta == 1)
             {
                 lblAgregado.Text = "Se ha agregado exitosamente!!";
+            }
+            else if (respuesta == -1)
+            {
+                lblAgregado.Text = "No se agregó la sucursal";
+            }
+            else if (respuesta == -2)
+            {
+                lblAgregado.Text = "Error en la conexión a la base de datos";
+            }
+            else
+            {
+                lblAgregado.Text = "Error desconocido";
             }
         }
         private void limpiarMensaje()
