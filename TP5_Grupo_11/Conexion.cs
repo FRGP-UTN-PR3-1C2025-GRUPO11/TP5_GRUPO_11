@@ -9,12 +9,13 @@ namespace TP5_Grupo_11
 {
     public class Conexion
     {
-        // CADENA DE CONEXION
-        private const string cadenaConexion = @"Data Source=DESKTOP-6LDIHKB\SQLEXPRESS;
+    // CADENA DE CONEXION
+    private const string cadenaConexion = @"Data Source=DESKTOP-6LDIHKB\SQLEXPRESS;
                                                 Initial Catalog=BDSucursales;
                                                 Integrated Security=True;TrustServerCertificate=True";
-        
-        public int ejecutarModificacion(string consultaSql)
+
+
+    public int ejecutarModificacion(string consultaSql)
         {
             // ESTABLECE LA CONEXION A SQL SERVER
             SqlConnection sqlConnection = new SqlConnection(cadenaConexion);
@@ -41,7 +42,7 @@ namespace TP5_Grupo_11
             {
                 sqlConnection.Open();
                 //SqlCommand sqlCommand = new SqlCommand(consultaSql, sqlConnection);
-                //SqlDataReader sqlDataReader = sqlCommand.ExecuteReader();
+                // SqlDataReader sqlDataReader = sqlCommand.ExecuteReader();
                 SqlDataAdapter adaptador = new SqlDataAdapter(consultaSql, sqlConnection);
                 DataSet ds = new DataSet();
                 adaptador.Fill(ds, tabla);

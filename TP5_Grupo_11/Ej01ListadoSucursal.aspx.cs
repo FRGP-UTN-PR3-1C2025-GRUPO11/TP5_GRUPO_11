@@ -54,9 +54,6 @@ namespace TP5_Grupo_11
                 gvSucursales.DataBind();
             }
 
-
-
-
                 txtBusqueda.Text = string.Empty;
 
             
@@ -77,6 +74,8 @@ namespace TP5_Grupo_11
             gvSucursales.DataBind();
 
             txtBusqueda.Text = string.Empty; 
+
+            lblListado.Text = string.Empty;
         }
     }
 }
