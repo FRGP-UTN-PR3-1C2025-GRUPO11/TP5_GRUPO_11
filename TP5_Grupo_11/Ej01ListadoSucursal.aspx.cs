@@ -24,7 +24,7 @@ namespace TP5_Grupo_11
                     "S.NombreSucursal AS [Nombre], " +
                     "S.DescripcionSucursal AS [Descripción]," +
                     "P.DescripcionProvincia as [Provincia] ," +
-                    "S.DireccionSucursal FROM SUCURSAL AS [S]" +
+                    "S.DireccionSucursal as [Dirección] FROM SUCURSAL AS [S]" +
                     "INNER JOIN PROVINCIA AS [P] ON S.Id_ProvinciaSucursal = P.Id_Provincia";
                 DataSet ds = new DataSet();
                 ds = conexion.ejecutarLectura(consulta, "SUCURSAL");
