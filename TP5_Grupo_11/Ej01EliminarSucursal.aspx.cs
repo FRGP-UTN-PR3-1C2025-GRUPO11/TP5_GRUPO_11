@@ -6,6 +6,7 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Data.SqlClient;
 using System.Data;
+using System.Text.RegularExpressions;
 namespace TP5_Grupo_11
 {
     public partial class Ej01EliminarSucursal : System.Web.UI.Page
@@ -20,7 +21,7 @@ namespace TP5_Grupo_11
 
         protected void btnEliminar_Click(object sender, EventArgs e)
         {
-            int idSucursal;
+            /*int idSucursal;
             if (!int.TryParse(txtSucursal.Text, out idSucursal))
             {
                 txtSucursal.Text = string.Empty;
@@ -35,8 +36,29 @@ namespace TP5_Grupo_11
               "S.DireccionSucursal " +
               "FROM SUCURSAL S " +
               "INNER JOIN PROVINCIA P ON S.Id_ProvinciaSucursal = P.Id_Provincia " +
-              "WHERE S.Id_Sucursal = " + txtSucursal.Text;
+              "WHERE S.Id_Sucursal = " + txtSucursal.Text;*/
 
+            string input = txtSucursal.Text;
+
+            string pattern = @"^\d+$";
+
+            if (!Regex.IsMatch(input, pattern))
+            {
+                txtSucursal.Text = string.Empty;
+                resultado.Text = "ID inválido. Ingresá un número entero positivo.";
+                return;
+            }
+
+            int idSucursal = int.Parse(input);
+
+            consultaSql = "SELECT S.Id_Sucursal, " +
+                          "S.NombreSucursal, " +
+                          "S.DescripcionSucursal, " +
+                          "P.DescripcionProvincia, " +
+                          "S.DireccionSucursal " +
+                          "FROM SUCURSAL S " +
+                          "INNER JOIN PROVINCIA P ON S.Id_ProvinciaSucursal = P.Id_Provincia " +
+                          "WHERE S.Id_Sucursal = " + idSucursal;
 
             //  string consultaSql = "SELECT * FROM Sucursal WHERE Id_Sucursal = " + txtSucursal.Text;
             DataSet ds = conexion.ejecutarLectura(consultaSql, "Sucursal");
