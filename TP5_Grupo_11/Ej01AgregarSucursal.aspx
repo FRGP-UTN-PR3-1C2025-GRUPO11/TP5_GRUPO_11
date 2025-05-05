@@ -11,6 +11,11 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>Agregar Sucursal</title>
     <style>
+        body {
+            margin: 0 auto;
+            width: 960px;
+            padding: 10px;
+        }
         .divHyperLinks {
             justify-content: center;
             display: flex;
@@ -40,10 +45,7 @@
                 width: 200px;
             }
 
-        body {
-            margin: 0 auto;
-            width: 960px;
-        }
+
     </style>
 </head>
 <body>
@@ -57,12 +59,12 @@
     </header>
 
     <main>
-        <form id="formularioEj01AgregarSucursal" runat="server">
+        <form id="formularioEj01AgregarSucursal" runat="server" defaultbutton="btnAgregar">
             <section>
                 <div id="datosSucursal">
                     <%-- NOMBRE SUCURSAL --%>
                     <div id="divNombreSucursal" class="formElement">
-                        <asp:Label Text="Nombre Sucursal:" runat="server" />
+                        <asp:Label Text="Nombre Sucursal:" runat="server" AssociatedControlID="txtBoxNombreSucursal" />
                         <asp:TextBox ID="txtBoxNombreSucursal" runat="server" placeholder="Nombre de Sucursal..."></asp:TextBox>
                         <asp:RequiredFieldValidator ID="rfvNombreSucursal" runat="server" ControlToValidate="txtBoxNombreSucursal" Display="Dynamic">Falta nombre</asp:RequiredFieldValidator>
                         <asp:CustomValidator ID="cvNombreSucursal" runat="server" ErrorMessage="Máximo 100 caracteres" Display="Dynamic" ControlToValidate="txtBoxNombreSucursal"
@@ -71,22 +73,22 @@
                     </div>
                     <%-- DESCRIPCION SUCURSAL --%>
                     <div id="divDescripcionSucursal" class="formElement">
-                        <asp:Label Text="Descripción:" runat="server" />
+                        <asp:Label Text="Descripción:" runat="server" AssociatedControlID="txtBoxDescripcionSucursal" />
                         <asp:TextBox ID="txtBoxDescripcionSucursal" runat="server" placeholder="Descripción..." TextMode="MultiLine"></asp:TextBox>
                         <asp:RequiredFieldValidator ID="rfvDescripSucursal" runat="server" ControlToValidate="txtBoxDescripcionSucursal">Falta descripción</asp:RequiredFieldValidator>
                         &nbsp;<asp:CustomValidator ID="cvDescripcion" runat="server" ControlToValidate="txtBoxDescripcionSucursal" OnServerValidate="cvDescripcion_ServerValidate">No se puede ingresar mas de 100 letras</asp:CustomValidator>
                     </div>
                     <%-- PROVINCIAS SUCURSAL --%>
                     <div id="divProvinciaSucursal" class="formElement">
-                        <asp:Label Text="Provincia:" runat="server" />
+                        <asp:Label Text="Provincia:" runat="server" AssociatedControlID="ddlProvinciaSucursal" />
                         <asp:DropDownList ID="ddlProvinciaSucursal" runat="server">
                             <asp:ListItem Enabled="True" Text="--Seleccionar--" Value="0"></asp:ListItem>
                         </asp:DropDownList>
                         <asp:RequiredFieldValidator ID="rfvProvincia" runat="server" ControlToValidate="ddlProvinciaSucursal" ErrorMessage="Seleccione una Provincia" InitialValue="0"></asp:RequiredFieldValidator>
                     </div>
                     <%-- DIRECCION SUCURSAL --%>
-                    <div id="divDieccionSucursal" class="formElement">
-                        <asp:Label runat="server" Text="Dirección:" />
+                    <div id="divDireccionSucursal" class="formElement">
+                        <asp:Label runat="server" Text="Dirección:" AssociatedControlID="txtBoxDireccionSucursal" />
                         <asp:TextBox ID="txtBoxDireccionSucursal" runat="server" placeholder="Dirección..."></asp:TextBox>
                         <asp:RequiredFieldValidator ID="rfvDireccionSucursal" runat="server" ControlToValidate="txtBoxDireccionSucursal">Falta la dirección</asp:RequiredFieldValidator>
                         <asp:Label runat="server" ID="lblErrorDireccion"></asp:Label>

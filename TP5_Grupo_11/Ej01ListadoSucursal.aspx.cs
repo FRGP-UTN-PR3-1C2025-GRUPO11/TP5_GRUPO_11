@@ -20,7 +20,7 @@ namespace TP5_Grupo_11
             if (!IsPostBack)
             {
                
-                string consulta = "SELECT S.Id_Sucursal, " +
+                string consulta = "SELECT S.Id_Sucursal AS [Id], " +
                     "S.NombreSucursal AS [Nombre], " +
                     "S.DescripcionSucursal AS [Descripción]," +
                     "P.DescripcionProvincia as [Provincia] ," +
@@ -38,7 +38,7 @@ namespace TP5_Grupo_11
         {
 
             consultaSql = "SELECT * FROM Sucursal WHERE Id_Sucursal = " + txtBusqueda.Text;
-
+            
             DataSet set = conexion.ejecutarLectura(consultaSql, "Sucursal");
 
             if (set.Tables["Sucursal"].Rows.Count > 0)
@@ -54,9 +54,9 @@ namespace TP5_Grupo_11
                 gvSucursales.DataBind();
             }
 
-                txtBusqueda.Text = string.Empty;
+            txtBusqueda.Text = string.Empty;
 
-            
+
         }
 
         protected void btnMostrarTodos_Click(object sender, EventArgs e)

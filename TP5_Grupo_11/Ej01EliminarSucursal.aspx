@@ -7,14 +7,16 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>Eliminar Sucursal</title>
     <style>
+
+body {
+    margin: 0 auto;
+    width: 960px;
+    padding: 10px;
+}
 .divHyperLinks {
     justify-content: center;
     display: flex;
     gap: 100px;
-}
-body {
-    margin: 0 auto;
-    width: 960px;
 }
 
     </style>
@@ -30,9 +32,9 @@ body {
 
     </header>
     <main>
-        <form id="formularioEj01EliminarSucursal" runat="server">
+        <form id="formularioEj01EliminarSucursal" runat="server" defaultbutton="btnEliminar">
             <div class="contenedor__eliminarSucursales">
-                <asp:Label Text="Ingresar ID Sucursal" runat="server" ID="lblShowID" />
+                <asp:Label Text="Ingresar ID Sucursal" runat="server" ID="lblShowID" AssociatedControlID="txtSucursal" />
                 <asp:TextBox ID="txtSucursal" runat="server"></asp:TextBox>
                 <asp:Button ID="btnEliminar" runat="server" Height="29px" OnClick="btnEliminar_Click" Text="Eliminar" />
                 <div style="margin-left: 200px; margin-top: 5px; color: red; font-weight: bolder">

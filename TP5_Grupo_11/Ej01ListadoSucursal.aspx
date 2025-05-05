@@ -7,22 +7,26 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>Listado Sucursales</title>
     <style>
+
+        body {
+            margin: 0 auto;
+            width: 960px;
+            padding: 10px;
+        }        
+        
         .divHyperLinks {
             justify-content: center;
             display: flex;
             gap: 100px;
         }
 
-        body {
-            margin: 0 auto;
-            width: 960px;
-        }
 
         .divBusqueda {
             margin: 15px auto;
             margin-bottom: 50px;
             display: flex;
             gap: 10px;
+            height: 50px;
         }
     </style>
 </head>
@@ -38,11 +42,11 @@
     </header>
     <main>
 
-        <form id="formularioEj01ListadoSucursal" runat="server">
+        <form id="formularioEj01ListadoSucursal" runat="server" defaultbutton="btnFiltrar">
             <div class="divHyperLinks">
             </div>
             <div class="divBusqueda">
-                <label for="" style="width: 250px">Búsqueda ingrese Id sucursal</label>
+                <label for="txtBusqueda" style="width: 250px">Búsqueda ingrese Id sucursal</label>
                 <div style="margin-right: 100px">
                     <div>
                         <asp:TextBox ID="txtBusqueda" runat="server" Style="margin-right: 30px; width: 200px" ValidationGroup="Grupo1"></asp:TextBox>
@@ -58,14 +62,15 @@
                 <br />
                 <br />
             </div>
+            <div>
             <asp:GridView ID="gvSucursales" runat="server" CellPadding="5" Width="900px" HorizontalAlign="Center">
                 <HeaderStyle BackColor="#CCCCCC" BorderColor="White" BorderStyle="Solid" Width="900px" />
             </asp:GridView>
             </div>
         </form>
-    </main>
     <p>
         <asp:Label ID="lblListado" runat="server" Font-Bold="True" Font-Size="Medium" ForeColor="Red"></asp:Label>
     </p>
+    </main>
 </body>
 </html>
