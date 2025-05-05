@@ -41,5 +41,6 @@ label {
             <asp:Label ID="resultado" runat="server"></asp:Label>
         </form>
     </main>
+    <asp:Label ID="lblEliminado" runat="server" Font-Bold="True"></asp:Label>
 </body>
 </html>
