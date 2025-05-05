@@ -19,7 +19,7 @@ namespace TP5_Grupo_11
             Page.UnobtrusiveValidationMode = UnobtrusiveValidationMode.None;
             if (!IsPostBack)
             {
-               
+
                 string consulta = "SELECT S.Id_Sucursal AS [Id], " +
                     "S.NombreSucursal AS [Nombre], " +
                     "S.DescripcionSucursal AS [Descripción]," +
@@ -37,8 +37,14 @@ namespace TP5_Grupo_11
         protected void btnFiltrar_Click(object sender, EventArgs e)
         {
 
-            consultaSql = "SELECT * FROM Sucursal WHERE Id_Sucursal = " + txtBusqueda.Text;
-            
+
+            consultaSql = "SELECT S.Id_Sucursal AS [Id], " +
+                            "S.NombreSucursal AS [Nombre], " +
+                            "S.DescripcionSucursal AS [Descripción]," +
+                            "P.DescripcionProvincia as [Provincia] ," +
+                            "S.DireccionSucursal as [Dirección] FROM SUCURSAL AS [S]" +
+                            "INNER JOIN PROVINCIA AS [P] ON S.Id_ProvinciaSucursal = P.Id_Provincia WHERE S.Id_Sucursal = " + txtBusqueda.Text;
+
             DataSet set = conexion.ejecutarLectura(consultaSql, "Sucursal");
 
             if (set.Tables["Sucursal"].Rows.Count > 0)
@@ -73,7 +79,7 @@ namespace TP5_Grupo_11
             gvSucursales.DataSource = set.Tables["Sucursal"];
             gvSucursales.DataBind();
 
-            txtBusqueda.Text = string.Empty; 
+            txtBusqueda.Text = string.Empty;
 
             lblListado.Text = string.Empty;
         }

@@ -19,8 +19,29 @@
         .divHyperLinks {
             justify-content: center;
             display: flex;
-            gap: 100px;
+            /*gap: 100px;*/
+            text-align: center;
         }
+            .divHyperLinks > a {
+                text-decoration: none;
+                color: white;
+                font-size: 14px;
+                font-weight: bolder;
+                display: inline-block;
+                background-color: #007BFF;
+                padding: 7px 15px;
+                border: 1px solid dodgerblue;
+                cursor: pointer;
+                opacity: 1; /* Default opacity */
+                transition: opacity 0.3s ease; /* Smooth transition effect */
+                font-family: Arial, sans-serif;
+                width: 100%;
+            }
+            .divHyperLinks > a:hover 
+            {
+                opacity: 0.7;
+                background-color: #0056b3;
+            }
 
         #datosSucursal {
             display: flex;
@@ -37,15 +58,18 @@
         }
 
             .formElement > select,
+            .formElement > textarea,
             .formElement > input {
-                width: 145px
+                width: 200px
             }
 
             .formElement > :nth-child(1) {
-                width: 200px;
+                width: 160px;
             }
 
-
+            html {
+    overflow-y: scroll;
+}
     </style>
 </head>
 <body>
@@ -96,11 +120,11 @@
                     </div>
                 </div>
             </section>
-
-            <asp:Button ID="btnAgregar" runat="server" OnClick="btnAgregar_Click" Text="Agregar" />
-            <p>
+            <div style="text-align: center; width: 360px; margin-top: 30px;">
+                <asp:Button ID="btnAgregar" runat="server" OnClick="btnAgregar_Click" Text="Agregar" Height="50px" Width="120px" /><br />
+                <br />
                 <asp:Label ID="lblAgregado" runat="server"></asp:Label>
-            </p>
+            </div>
         </form>
     </main>
 </body>

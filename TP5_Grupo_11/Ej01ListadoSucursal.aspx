@@ -17,8 +17,29 @@
         .divHyperLinks {
             justify-content: center;
             display: flex;
-            gap: 100px;
+            /*gap: 100px;*/
+            text-align: center;
         }
+            .divHyperLinks > a {
+                text-decoration: none;
+                color: white;
+                font-size: 14px;
+                font-weight: bolder;
+                display: inline-block;
+                background-color: #007BFF;
+                padding: 7px 15px;
+                border: 1px solid dodgerblue;
+                cursor: pointer;
+                opacity: 1; /* Default opacity */
+                transition: opacity 0.3s ease; /* Smooth transition effect */
+                font-family: Arial, sans-serif;
+                width: 100%;
+            }
+            .divHyperLinks > a:hover 
+            {
+                opacity: 0.7;
+                background-color: #0056b3;
+            }
 
 
         .divBusqueda {
@@ -28,6 +49,39 @@
             gap: 10px;
             height: 50px;
         }
+
+        table {
+    width: 95%;
+    border-collapse: collapse;
+    font-family: Arial, sans-serif;
+    text-align: left;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+th, td {
+    padding: 12px;
+    border-bottom: 1px solid #ddd;
+}
+
+th {
+    background-color: #007BFF;
+    color: white;
+}
+
+tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+tr:hover {
+    background-color: #ddd; 
+    transition: 0.3s ease-in-out;
+}
+html {
+    overflow-y: scroll;
+}
+
+
     </style>
 </head>
 <body>
@@ -63,8 +117,7 @@
                 <br />
             </div>
             <div>
-            <asp:GridView ID="gvSucursales" runat="server" CellPadding="5" Width="900px" HorizontalAlign="Center">
-                <HeaderStyle BackColor="#CCCCCC" BorderColor="White" BorderStyle="Solid" Width="900px" />
+            <asp:GridView ID="gvSucursales" runat="server" Width="800px" HorizontalAlign="Center">
             </asp:GridView>
             </div>
         </form>

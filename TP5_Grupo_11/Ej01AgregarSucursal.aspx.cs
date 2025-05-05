@@ -35,7 +35,7 @@ namespace TP5_Grupo_11
                 ddlProvinciaSucursal.DataValueField = "Id_Provincia";
                 ddlProvinciaSucursal.DataBind();
                 /// Cargamos un item: despues de obtener los datos:
-                ddlProvinciaSucursal.Items.Insert(0, new ListItem("-- Seleleccionar--", "0"));
+                ddlProvinciaSucursal.Items.Insert(0, new ListItem("-- Seleccionar--", "0"));
                 
             }
         }
