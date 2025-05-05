@@ -42,7 +42,20 @@ body {
             html {
     overflow-y: scroll;
 }
+            .btn-custom {
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
 
+.btn-custom:hover {
+    background-color: #0056b3;
+}
     </style>
 </head>
 <body>
@@ -60,7 +73,7 @@ body {
             <div class="contenedor__eliminarSucursales">
                 <asp:Label Text="Ingresar ID Sucursal" runat="server" ID="lblShowID" AssociatedControlID="txtSucursal" />
                 <asp:TextBox ID="txtSucursal" runat="server"></asp:TextBox>
-                <asp:Button ID="btnEliminar" runat="server" Height="29px" OnClick="btnEliminar_Click" Text="Eliminar" />
+                <asp:Button ID="btnEliminar" runat="server" OnClick="btnEliminar_Click" Text="Eliminar" CssClass="btn-custom" />
                 <div style="margin-left: 200px; margin-top: 5px; color: red; font-weight: bolder">
                     <asp:RequiredFieldValidator ID="rfvSucursal" runat="server" ControlToValidate="txtSucursal" ErrorMessage="Debe ingresar un ID de sucursal" ForeColor="Red" Display="Dynamic" />
                 </div>

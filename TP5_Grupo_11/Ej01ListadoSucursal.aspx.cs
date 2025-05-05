@@ -67,11 +67,11 @@ namespace TP5_Grupo_11
 
         protected void btnMostrarTodos_Click(object sender, EventArgs e)
         {
-            consultaSql = "SELECT S.Id_Sucursal, " +
+            consultaSql = "SELECT S.Id_Sucursal AS [Id], " +
                     "S.NombreSucursal AS [Nombre], " +
                     "S.DescripcionSucursal AS [Descripción]," +
                     "P.DescripcionProvincia as [Provincia] ," +
-                    "S.DireccionSucursal FROM SUCURSAL AS [S]" +
+                    "S.DireccionSucursal AS [Dirección] FROM SUCURSAL AS [S]" +
                     "INNER JOIN PROVINCIA AS [P] ON S.Id_ProvinciaSucursal = P.Id_Provincia";
 
             DataSet set = conexion.ejecutarLectura(consultaSql, "Sucursal");

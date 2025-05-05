@@ -70,6 +70,20 @@
             html {
     overflow-y: scroll;
 }
+            .btn-custom {
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.btn-custom:hover {
+    background-color: #0056b3;
+}
     </style>
 </head>
 <body>
@@ -121,7 +135,7 @@
                 </div>
             </section>
             <div style="text-align: center; width: 360px; margin-top: 30px;">
-                <asp:Button ID="btnAgregar" runat="server" OnClick="btnAgregar_Click" Text="Agregar" Height="50px" Width="120px" /><br />
+                <asp:Button ID="btnAgregar" runat="server" OnClick="btnAgregar_Click" Text="Agregar" Height="50px" Width="120px" CssClass="btn-custom" /><br />
                 <br />
                 <asp:Label ID="lblAgregado" runat="server"></asp:Label>
             </div>

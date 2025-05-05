@@ -59,10 +59,10 @@
     overflow: hidden;
 }
 
-th, td {
-    padding: 12px;
-    border-bottom: 1px solid #ddd;
-}
+    th, td {
+        padding: 12px;
+        border-bottom: 1px solid #ddd;
+    }
 
 th {
     background-color: #007BFF;
@@ -87,6 +87,34 @@ html {
     overflow: hidden;
     text-overflow: ellipsis;
     max-width: 150px;
+}
+.no-wrap-grid td:nth-child(1),
+.no-wrap-grid th:nth-child(1)
+{
+    width: 20px;
+}
+.no-wrap-grid td:nth-child(2),
+.no-wrap-grid th:nth-child(2),
+.no-wrap-grid td:nth-child(4),
+.no-wrap-grid th:nth-child(4),
+.no-wrap-grid td:nth-child(5),
+.no-wrap-grid th:nth-child(5) {
+    width: 150px;
+}
+
+.btn-custom {
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.btn-custom:hover {
+    background-color: #0056b3;
 }
 
     </style>
@@ -118,8 +146,8 @@ html {
                         </div>
                     </div>
                 </div>
-                <asp:Button ID="btnFiltrar" runat="server" OnClick="btnFiltrar_Click" Text="Filtrar" ValidationGroup="Grupo1" />
-                <asp:Button runat="server" Text="Mostrar Todos" ID="btnMostrarTodos" OnClick="btnMostrarTodos_Click" />
+                <asp:Button ID="btnFiltrar" runat="server" OnClick="btnFiltrar_Click" Text="Filtrar" ValidationGroup="Grupo1" CssClass="btn-custom" />
+                <asp:Button runat="server" Text="Mostrar Todos" ID="btnMostrarTodos" OnClick="btnMostrarTodos_Click" CssClass="btn-custom" />
                 <br />
                 <br />
             </div>
