@@ -16,9 +16,7 @@ main {
     margin: 0 auto;
     width: 960px;
 }
-label {
-    display: inline-block;
-}
+
     </style>
 </head>
 <body>
@@ -30,15 +28,15 @@ label {
     <%-- TITULO  --%>
         <h1>Eliminar Sucursales</h1>
         <form id="formularioEj01EliminarSucursal" runat="server">
-            <div class="contenedor__eliminarSucursales">
-                <asp:Label Text="Ingresar ID Sucursal" runat="server" ID="lblShowID" /> 
-            </div>
+        <div class="contenedor__eliminarSucursales">
+            <asp:Label Text="Ingresar ID Sucursal" runat="server" ID="lblShowID" /> 
             <asp:TextBox ID="txtSucursal" runat="server" ></asp:TextBox>
             <asp:Button ID="btnEliminar" runat="server" Height="29px" OnClick="btnEliminar_Click" Text="Eliminar" />
-&nbsp;<div style="margin-left: 200px; margin-top:5px; color: red; font-weight: bolder">
-                &nbsp;<asp:RequiredFieldValidator ID="rfvSucursal" runat="server" ControlToValidate="txtSucursal" ErrorMessage="Debe ingresar un ID de sucursal" ForeColor="Red" Display="Dynamic" />
-                </div>
+            <div style="margin-left: 200px; margin-top:5px; color: red; font-weight: bolder">
+                <asp:RequiredFieldValidator ID="rfvSucursal" runat="server" ControlToValidate="txtSucursal" ErrorMessage="Debe ingresar un ID de sucursal" ForeColor="Red" Display="Dynamic" />
+            </div>
             <asp:Label ID="resultado" runat="server"></asp:Label>
+        </div>
         </form>
     </main>
     <asp:Label ID="lblEliminado" runat="server" Font-Bold="True"></asp:Label>

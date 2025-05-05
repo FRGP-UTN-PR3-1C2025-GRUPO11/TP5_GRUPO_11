@@ -57,7 +57,7 @@
                             EnableClientScript="False" Font-Bold="True" ForeColor="Red" OnServerValidate="cvNombreSucursal_ServerValidate"></asp:CustomValidator>
                     <asp:Label runat="server" ID="lblErrorNombre"></asp:Label>
                 </div>
-                <%-- DESCRIPCION SUCURSALR --%>
+                <%-- DESCRIPCION SUCURSAL --%>
                 <div id="divDescripcionSucursal" class="formElement">
                 <asp:Label Text="Descripción:" runat="server" />
                 <asp:TextBox ID="txtBoxDescripcionSucursal" runat="server" placeholder="Descripción..." TextMode="MultiLine"></asp:TextBox>

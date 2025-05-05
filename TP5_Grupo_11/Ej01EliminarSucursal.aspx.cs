@@ -62,7 +62,28 @@ namespace TP5_Grupo_11
 
             txtSucursal.Text = string.Empty;
 
-            filasAlt = conexion.ejecutarModificacion(consultaSql);
+            //filasAlt = conexion.ejecutarModificacion(consultaSql); // ELIMINADO PORQUE AHORA USAMOS STORE PROCEDURE:
+            filasAlt = conexion.eliminarSucursal("SP_EliminarSucursal", idSucursal);
+            if(filasAlt == 1)
+            {
+                resultado.Text = "Eliminado con éxito (1) registro";
+                return;
+            }
+            else if (filasAlt == -1)
+            {
+                resultado.Text = "No se eliminó ningún registro";
+                return;
+            }
+            else if (filasAlt == -2)
+            {
+                resultado.Text = "Error en la conexión a la base de datos";
+                return;
+            }
+            else
+            {
+                resultado.Text = "Error desconocido";
+            }
+
 
             lblEliminado.Text = "Se ha eliminado la sucursal:" + nombre;
             lblEliminado.Text += "   Descripción:" + descripcion;

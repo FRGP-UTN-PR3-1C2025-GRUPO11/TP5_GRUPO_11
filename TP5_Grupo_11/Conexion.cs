@@ -85,5 +85,28 @@ namespace TP5_Grupo_11
                 return -2; // devuelve -2 si hubo errores en la conexion
             }
         }
+        public int eliminarSucursal(string storeProcedure, int Id_Sucursal)
+        {
+            int resultado = 0;
+            try
+            {
+                SqlConnection sqlConnection = new SqlConnection(cadenaConexion);
+                sqlConnection.Open();
+                // AGREGO EL STORE PROCEDURE
+                SqlCommand sqlCommand = new SqlCommand(storeProcedure, sqlConnection);
+                sqlCommand.CommandType = CommandType.StoredProcedure;
+                sqlCommand.CommandText = "SP_EliminarSucursal";
+                // PARAMETROS:
+                SqlParameter sqlParameter = new SqlParameter();
+                sqlParameter = sqlCommand.Parameters.Add("@Id_Sucursal", SqlDbType.Int);
+                sqlParameter.Value = Convert.ToInt32(Id_Sucursal);
+                resultado = sqlCommand.ExecuteNonQuery(); // devuelve 1 si se afecto una fila, -1 si no se afectó ninguna fila
+                return resultado;
+            }
+            catch (Exception e)
+            {
+                return -2; // devuelve -2 si hubo errores en la conexion
+            }
+        }
     }
 }
