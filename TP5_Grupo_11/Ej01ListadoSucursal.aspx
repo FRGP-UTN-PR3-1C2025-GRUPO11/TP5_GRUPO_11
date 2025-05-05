@@ -51,7 +51,7 @@
         }
 
         table {
-    width: 95%;
+    width: 100%;
     border-collapse: collapse;
     font-family: Arial, sans-serif;
     text-align: left;
@@ -81,6 +81,13 @@ html {
     overflow-y: scroll;
 }
 
+.no-wrap-grid td,
+.no-wrap-grid th {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 150px;
+}
 
     </style>
 </head>
@@ -117,7 +124,7 @@ html {
                 <br />
             </div>
             <div>
-            <asp:GridView ID="gvSucursales" runat="server" Width="800px" HorizontalAlign="Center">
+            <asp:GridView ID="gvSucursales" runat="server" HorizontalAlign="Center" CSSClass="no-wrap-grid">
             </asp:GridView>
             </div>
         </form>
