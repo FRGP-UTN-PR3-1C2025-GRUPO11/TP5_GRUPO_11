@@ -35,10 +35,11 @@ main {
             <div style="margin-left: 200px; margin-top:5px; color: red; font-weight: bolder">
                 <asp:RequiredFieldValidator ID="rfvSucursal" runat="server" ControlToValidate="txtSucursal" ErrorMessage="Debe ingresar un ID de sucursal" ForeColor="Red" Display="Dynamic" />
             </div>
-            <asp:Label ID="resultado" runat="server"></asp:Label>
+            <asp:Label ID="resultado" runat="server"></asp:Label><br />
+            <asp:Label ID="lblEliminado" runat="server" Font-Bold="True"></asp:Label>
         </div>
         </form>
     </main>
-    <asp:Label ID="lblEliminado" runat="server" Font-Bold="True"></asp:Label>
+    
 </body>
 </html>

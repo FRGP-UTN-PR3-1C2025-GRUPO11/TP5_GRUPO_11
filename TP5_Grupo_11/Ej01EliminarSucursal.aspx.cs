@@ -57,8 +57,8 @@ namespace TP5_Grupo_11
             string direccion = fila["DireccionSucursal"].ToString();
 
 
-            consultaSql = "DELETE FROM Sucursal WHERE Id_Sucursal=" + txtSucursal.Text;
-            resultado.Text = "La sucursal se ha eliminado con éxito";
+            //consultaSql = "DELETE FROM Sucursal WHERE Id_Sucursal=" + txtSucursal.Text;
+            //resultado.Text = "La sucursal se ha eliminado con éxito";
 
             txtSucursal.Text = string.Empty;
 
@@ -66,31 +66,23 @@ namespace TP5_Grupo_11
             filasAlt = conexion.eliminarSucursal("SP_EliminarSucursal", idSucursal);
             if(filasAlt == 1)
             {
-                resultado.Text = "Eliminado con éxito (1) registro";
-                return;
+                lblEliminado.Text = "Se ha eliminado la sucursal:" + nombre;
+                lblEliminado.Text += "   Descripción:" + descripcion;
+                lblEliminado.Text += "   Provincia:" + provincia;
+                lblEliminado.Text += "   Direccion de la Sucursal:" + direccion;
             }
             else if (filasAlt == -1)
             {
                 resultado.Text = "No se eliminó ningún registro";
-                return;
             }
             else if (filasAlt == -2)
             {
                 resultado.Text = "Error en la conexión a la base de datos";
-                return;
             }
             else
             {
                 resultado.Text = "Error desconocido";
             }
-
-
-            lblEliminado.Text = "Se ha eliminado la sucursal:" + nombre;
-            lblEliminado.Text += "   Descripción:" + descripcion;
-            lblEliminado.Text += "   Provincia:" + provincia;
-            lblEliminado.Text += "   Direccion de la Sucursal:" + direccion;
-            
-            
         }
 
 
